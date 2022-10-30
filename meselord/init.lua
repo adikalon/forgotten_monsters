@@ -42,7 +42,7 @@ mobs:register_mob("meselord:meselord", {
 	view_range = 40,
 	drops = {
 		{name = "default:mese", chance = 2, min = 1, max = 2},
-		{name = "skullkingsitems:meselord_trophy", chance = 1, min = 1, max = 1},
+		--{name = "skullkingsitems:meselord_trophy", chance = 1, min = 1, max = 1},
 	},
 	water_damage = 0,
 	lava_damage = 0,
@@ -64,6 +64,15 @@ mobs:register_mob("meselord:meselord", {
 
 	on_spawn = function ()
 	minetest.chat_send_all ("Mese Lord has been awakened..")
+	end,
+	
+	--- REFERENCIA DO MINECLONE2 BOSS :)
+	on_die = function(self, pos) -- POSIÇÃO
+	for _,players in pairs(minetest.get_objects_inside_radius(pos,55)) do -- CONSEGUIR RADIUS ( POSIÇÃO ,64 NODES?)
+			if players:is_player() then -- SE PLAYER
+				awards.unlock(players:get_player_name(), "boss_1") -- DESBLOQUEAR CONQUISTAS?
+			end
+		end
 	end
 
 

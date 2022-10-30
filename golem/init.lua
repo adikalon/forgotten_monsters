@@ -35,7 +35,7 @@ mobs:register_mob("golem:golem", {
 	view_range = 35,
 	drops = {
 		--{name = " ", chance = 2, min = 1, max = 1},
-		{name = "skullkingsitems:golem_trophy", chance = 1, min = 1, max = 1},
+		--{name = "skullkingsitems:golem_trophy", chance = 1, min = 1, max = 1},
 		{name = "default:diamondblock", chance = 2, min = 1, max = 2},
 
 	},
@@ -57,7 +57,17 @@ mobs:register_mob("golem:golem", {
 
 	on_spawn = function ()
 	minetest.chat_send_all ("Golem Summoned ...")
+	end,
+	
+	--- REFERENCIA DO MINECLONE2 BOSS :)
+	on_die = function(self, pos) -- POSIÇÃO
+	for _,players in pairs(minetest.get_objects_inside_radius(pos,55)) do -- CONSEGUIR RADIUS ( POSIÇÃO ,64 NODES?)
+			if players:is_player() then -- SE PLAYER
+				awards.unlock(players:get_player_name(), "boss_2") -- DESBLOQUEAR CONQUISTAS?
+			end
+		end
 	end
+
 
 })
 

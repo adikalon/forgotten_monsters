@@ -279,53 +279,41 @@ minetest.register_craft({
 
 		if minetest.get_modpath("awards") then  
 		
-		   awards.register_award("boss", {
+		   awards.register_award("boss_1", {
 			title = "First Boss , Mese Lord ",
-			description = "Kill the first boss, get the trophy, and place it on your wall..", 
+			description = "Kill the first boss, get the trophy and unlock the next achievement...", 
 			icon = "mese_lord_award.png", 
 			background = "awards_bg_mining.png",
 			-- requires = {""},
-			-- prizes = {""} ,
-			trigger = {
-				type = "place", 
-				node  = "skullkingsitems:meselord_trophy", 
-				target = 1 
-			}
+			prizes = {"skullkingsitems:meselord_trophy"} ,
+			
 		})
 		
 		
 		
 	
 		  
-		   awards.register_award("boss 2", {
+		   awards.register_award("boss_2", {
 			title = "Golem Boss",
-			description = "Defeat the Golem Boss, get the trophy, and place it on your wall...", 
+			description = "One more challenge ahead of you, defeat the Golem boss...", 
 			icon = "golem_award.png", 
 			background = "awards_bg_mining.png",
-			-- requires = {""},
-			-- prizes = {""} ,
-			trigger = {
-				type = "place", 
-				node  = "skullkingsitems:golem_trophy", 
-				target = 1
-			}
+			requires = {"boss_1"},
+			prizes = {"skullkingsitems:golem_trophy"} ,
+			
 		})
 		
 		
 	
 		  
-		   awards.register_award("boss 3", {
+		   awards.register_award("boss_3", {
 			title = "Skull King Boss",
-			description = "Defeat the Skull King Boss, get the trophy, and place it on your wall...", 
+			description = "You've proven yourself strong enough, now defeat King Cave...", 
 			icon = "skullking_award.png", 
 			background = "awards_bg_mining.png",
-			-- requires = {""},
-			-- prizes = {""} ,
-			trigger = {
-				type = "place", 
-				node  = "skullkingsitems:skullking_trophy", 
-				target = 1
-			}
+			requires = {"boss_2"},
+			prizes = {"skullkingsitems:skullking_trophy"} ,
+			
 		})
 		
 		end

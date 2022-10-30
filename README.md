@@ -4,7 +4,7 @@
 - CREDITS : TenPlus1
 - LICENSE : MIT
 - TEXTURE : CC-BY-4.0
-- VERSION : 0.020
+- VERSION : 0.021
 
 - depends = default, mobs , 3d_armor
 - optional_depends = awards

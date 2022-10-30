@@ -36,7 +36,7 @@ mobs:register_mob("skullking:sking", {
 	drops = {
 		{name = "skullkingsitems:helmet_skullking", chance = 1, min = 1, max = 1},
 		{name = "skullkingsitems:hammer", chance = 1, min = 1, max = 1},
-		{name = "skullkingsitems:skullking_trophy", chance = 1, min = 1, max = 1},
+		--{name = "skullkingsitems:skullking_trophy", chance = 1, min = 1, max = 1},
 		--{name = "", chance = 3, min = 1, max = 1},
 	},
 	water_damage = 0,
@@ -60,6 +60,15 @@ mobs:register_mob("skullking:sking", {
 
 	on_spawn = function ()
 	minetest.chat_send_all ("The Skull King is reborn...")
+	end,
+	
+	--- REFERENCIA DO MINECLONE2 BOSS :)
+	on_die = function(self, pos) -- POSIÇÃO
+	for _,players in pairs(minetest.get_objects_inside_radius(pos,55)) do -- CONSEGUIR RADIUS ( POSIÇÃO ,64 NODES?)
+			if players:is_player() then -- SE PLAYER
+				awards.unlock(players:get_player_name(), "boss_3") -- DESBLOQUEAR CONQUISTAS?
+			end
+		end
 	end
 
 

@@ -100,12 +100,22 @@ mobs:spawn({
 end
 
 
--- ARROW -----------------------------------------------------------
+-- ARROW ================================================================================================
+minetest.register_craftitem("spectrum:spectrum_magic_arrow", {
+	description = "Spectrum Magic arrow",
+	inventory_image = "pectrum_arrow.png",
+	groups = {not_in_creative_inventory = 1}
+})
+
+
 mobs:register_arrow("spectrum:spectrum_arrow", {
-	visual = "sprite",
-	visual_size = {x = 0.5, y = 0.5},
-	textures = {"pectrum_arrow.png"},
-	velocity = 18,
+	
+	visual = "wielditem",
+	visual_size = {x=0.3, y=0.3},
+	velocity = 12,
+	textures = {"spectrum:spectrum_magic_arrow"}, 
+	--rotate = 180,
+	damage = 2,
 	glow = 5,
 
 

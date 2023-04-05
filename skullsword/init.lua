@@ -37,7 +37,7 @@ mobs:register_mob("skullsword:ssword", {
 	attack_type = "dogfight",
 	pathfinding = true,
 	reach = 3,
-	damage = 5,
+	damage = 4,
 	hp_min = 15,
 	hp_max = 15,
 	armor = 100,

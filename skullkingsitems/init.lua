@@ -280,7 +280,7 @@ minetest.register_craft({
 		if minetest.get_modpath("awards") then  
 		
 		   awards.register_award("boss_1", {
-			title = "First Boss , Mese Lord ",
+			title = "First Boss , Mese Lord",
 			description = "Kill the first boss, get the trophy and unlock the next achievement...", 
 			icon = "mese_lord_award.png", 
 			background = "awards_bg_mining.png",

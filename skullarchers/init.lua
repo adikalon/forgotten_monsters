@@ -33,7 +33,7 @@ mobs:register_mob("skullarchers:sarchers", {
 	type = "monster",
 	passive = false,
 	attack_type = "shoot",
-        arrow = "skullarchers:sarchers_arrow",
+    arrow = "skullarchers:sarchers_arrow",
 	shoot_interval = 2.0,
 	shoot_offset = 1.5,
 	pathfinding = true,
@@ -100,18 +100,24 @@ mobs:spawn({
 end
 
 
+-- ARROW ================================================================================================
+minetest.register_craftitem("skullarchers:skull_arrow", {
+	description = "Skull Archers Arrow",
+	inventory_image = "arrow_stone.png",
+	groups = {not_in_creative_inventory = 1}
+})
 
 mobs:register_arrow("skullarchers:sarchers_arrow", {  --arrow
-
 
    visual = "wielditem",
    visual_size = {x=0.3, y=0.3},
    velocity = 12,
    textures = {"skullarchers:skull_arrow"},  -- posso criar um bloco, ou flecha 3d
-   tail = 1,
-   tail_texture = "particules_arrow.png",
-   tail_size = 2.0,
-   rotate = 90,
+   --tail = 1,
+   --tail_texture = "particules_arrow.png",
+   --tail_size = 2.0,
+   rotate = 180,
+   damage = 2,
 
 
 
@@ -152,41 +158,3 @@ mobs:register_arrow("skullarchers:sarchers_arrow", {  --arrow
 
 mobs:register_egg("skullarchers:sarchers", "skull Archers", "eggsarc.png", 1)
 core.register_alias("skullarchers:sarchers", "spawneggs:sarchers")
-
-
-
---ARROW :
--- Textura do Arrow , retirado do mod X-Bows
-
-minetest.register_node("skullarchers:skull_arrow", {
-	--description = "Skull Arrow",
-	drawtype = "mesh",
-	mesh = "skullarc_arrow.obj",
-	tiles = {"x_bows_arrow_stone.png"} ,
-	--wield_scale = {x=1, y=1, z=1},
-	--inventory_image = "skull_king_deep.png",
-	tool_capabilities = {
-		full_punch_interval = 0.5,
-		max_drop_level=1,
-		groupcaps={
-			snappy={times={[1]=1.50, [2]=0.60, [3]=0.30}, uses=100, maxlevel=3},
-			cracky = {times={[1]=1.90, [2]=0.90, [3]=0.40}, uses=100, maxlevel=3},
-		},
-		damage_groups = {fleshy=10},
-	},
-	sound = {breaks = "default_tool_breaks"},
-	groups = {dig_immediate=3},
-
--- CAIXA DE COLISÃO :
-	paramtype2 = "facedir",
-		selection_box = {
-			type = "fixed", -- fica no formato da caixa se ajustado
-			fixed = {
-				{-0.4, -0.4, -0.4, 0.4, 0.4, 0.4},
-
-			},
-		},
-
-
-
-})

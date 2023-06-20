@@ -33,7 +33,7 @@ mobs:register_mob("skullarchers:sarchers", {
 	type = "monster",
 	passive = false,
 	attack_type = "shoot",
-    arrow = "skullarchers:sarchers_arrow",
+   arrow = "skullarchers:sarchers_arrow",
 	shoot_interval = 2.0,
 	shoot_offset = 1.5,
 	pathfinding = true,

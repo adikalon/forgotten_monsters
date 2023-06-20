@@ -27,7 +27,7 @@ mobs:register_mob("spoky:spoky", {
 	passive = false,
 	attack_npcs = false,
 	attack_type = "explode",
-	explosion_radius = 2,
+	explosion_radius = 1,
 	explosion_timer = 3,
 	pathfinding = true,
 	reach = 3,

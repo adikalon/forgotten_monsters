@@ -15,10 +15,8 @@ mobs:register_mob("forgotten_monsters:bugstone", {
 	mesh = "dude_stone.b3d",
 	rotate = 180,
 	textures = {
-		{
-			"dude_stone.png",
-			"dude_stone2.png",
-		},
+		{"dude_stone.png"},
+		{"dude_stone2.png"},
 	},
 	blood_texture = "faisca.png",
 	makes_footstep_sound = true,

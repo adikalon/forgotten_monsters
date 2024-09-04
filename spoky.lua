@@ -1,30 +1,7 @@
-
--- sound : https://freesound.org/people/diakunik/sounds/556367/
--- Sound 2 : https://freesound.org/people/TyroneBarr/sounds/594063/
-
-
-local spokynods = {
-"default:dirt",
-"default:dirt_with_rainforest_litter",
-"default:dirt_with_grass",
-"default:dirt_with_dry_grass",
-"default:dry_dirt_with_dry_grass",
-"default:dirt_with_coniferous_litter",
-"default:stone",
-"default:ice",
-"default:snowblock",
-"default:dirt_with_snow",
-"default:sand",
-"default:desert_sand",
-"default:desert_stone",
-
-
-}
-
-mobs:register_mob("spoky:spoky", {
-	--nametag = "Spoky" ,
+mobs:register_mob("forgotten_monsters:spoky", {
 	type = "monster",
 	passive = false,
+	attack_animals = false,
 	attack_npcs = false,
 	attack_type = "explode",
 	explosion_radius = 1,
@@ -35,7 +12,6 @@ mobs:register_mob("spoky:spoky", {
 	hp_min = 15,
 	hp_max = 15,
 	armor = 100,
-	-------- atras , abaixo , ... , direita , cima , frente
 	collisionbox = {-0.5, -0.4, -0.5, 0.5, 0.5, 0.5},
 	visual = "mesh",
 	mesh = "spokyx.b3d",
@@ -44,11 +20,8 @@ mobs:register_mob("spoky:spoky", {
 		{"spokyx.png"},
 	},
 	blood_texture = "tnt_smoke.png",
-	--visual_size = {x = 2, y = 2 },
 	makes_footstep_sound = true,
 	sounds = {
-		-- random = "",
-		-- attack = "",
 		explode = "tnt_explode",
 		fuse = "chaleira2",
 	},
@@ -58,14 +31,11 @@ mobs:register_mob("spoky:spoky", {
 	stepheight = 1.1,
 	floats = 0,
 	view_range = 35,
-	drops = {
-		--{name = "default:torch", chance = 2, min = 3, max = 5},
-	--	{name = "default:iron_lump", chance = 5, min = 1, max = 2},
-		{name = "default:coal_lump", chance = 1, min = 1, max = 3},
-	},
-	water_damage = 0,
-	lava_damage = 1,
-	light_damage = 0,
+	drops = {},
+	lava_damage = 4,
+	light_damage = 2,
+	water_damage = 0.01,
+	fall_damage = true,
 	animation = {
 		stand_start = 0,
 		stand_end = 0,
@@ -77,24 +47,11 @@ mobs:register_mob("spoky:spoky", {
 		run_end = 39,
 		punch_start = 0,
 		punch_end = 0,
-
 	},
 })
 
-if not mobs.custom_spawn_monster then
-mobs:spawn({
-	name = "spoky:spoky",
-	nodes = spokynods,
-	min_light = 0,
-	max_light = 14,
-	interval = 60,
-	chance = 15000,
-	--min_height = 0,
-	--max_height = 200,
-	max_height = 200,
+mobs:register_egg("forgotten_monsters:spoky", forgotten_monsters.S("Spoky"), "eggsspoky.png", 1)
 
-})
+if not forgotten_monsters.custom_spawn and forgotten_monsters.spawns.spoky then
+	mobs:spawn(forgotten_monsters.spawns.spoky)
 end
-
-mobs:register_egg("spoky:spoky", "spoky", "eggsspoky.png", 1)
---core.register_alias("spoky:spoky", "spawneggs:spoky")

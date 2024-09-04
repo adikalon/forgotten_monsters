@@ -101,4 +101,15 @@ forgotten_monsters.spawns = {
 		min_height = forgotten_monsters.height.min,
 		max_height = forgotten_monsters.height.max,
 	},
+    spoky = {
+		name = "forgotten_monsters:spoky",
+		nodes = {"group:cracky", "group:crumbly"},
+		neighbors = {"air"},
+		max_light = 7,
+		interval = 30,
+		chance = 20000,
+		active_object_count = 1,
+		min_height = forgotten_monsters.height.min,
+		max_height = -10,
+	},
 }

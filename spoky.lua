@@ -22,6 +22,7 @@ mobs:register_mob("forgotten_monsters:spoky", {
 	blood_texture = "tnt_smoke.png",
 	makes_footstep_sound = true,
 	sounds = {
+		random = "polvora",
 		explode = "tnt_explode",
 		fuse = "chaleira2",
 	},

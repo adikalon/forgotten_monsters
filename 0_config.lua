@@ -57,4 +57,15 @@ forgotten_monsters.spawns = {
 		min_height = 0,
 		max_height = forgotten_monsters.height.max,
 	},
+	hungry = {
+		name = "forgotten_monsters:hungry",
+		nodes = {"group:crumbly", "group:soil", "group:dirt"},
+		neighbors = {"air"},
+		mix_light = 0,
+		interval = 30,
+		chance = 20000,
+		active_object_count = 1,
+		min_height = forgotten_monsters.height.min,
+		max_height = forgotten_monsters.height.max,
+	},
 }

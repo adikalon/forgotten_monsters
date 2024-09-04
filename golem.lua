@@ -1,17 +1,15 @@
----- GOLEM   ( BOSS 2 )------------------------------------------------------------------------------------------------------
--- sound : https://freesound.org/people/Debsound/sounds/250148/
-
-mobs:register_mob("golem:golem", {
-	nametag = "Golem Boss" ,
+mobs:register_mob("forgotten_monsters:golem", {
+	nametag = forgotten_monsters.S("Golem"),
 	type = "monster",
 	passive = false,
-	attack_npcs = false,
+	attack_animals = true,
+	attack_npcs = true,
 	attack_type = "dogfight",
 	pathfinding = true,
 	reach = 6,
 	damage = 12,
-	hp_min = 500,
-	hp_max = 500,
+	hp_min = 2000,
+	hp_max = 2500,
 	armor = 80,
 	collisionbox = {-1.0, -2.0, -1.0, 1.0, 1.2, 1.0},
 	visual = "mesh",
@@ -25,7 +23,6 @@ mobs:register_mob("golem:golem", {
 	makes_footstep_sound = true,
 	sounds = {
 		attack = "monster",
-		--death = "",
 	},
 	walk_velocity = 2,
 	run_velocity = 4,
@@ -34,14 +31,12 @@ mobs:register_mob("golem:golem", {
 	floats = 0,
 	view_range = 35,
 	drops = {
-		--{name = " ", chance = 2, min = 1, max = 1},
-		--{name = "skullkingsitems:golem_trophy", chance = 1, min = 1, max = 1},
-		{name = "default:diamondblock", chance = 2, min = 1, max = 2},
-
+		{name = "default:diamondblock", chance = 1, min = 5, max = 10},
 	},
-	water_damage = 0,
-	lava_damage = 1,
-	light_damage = 0,
+	lava_damage = 4,
+	light_damage = 2,
+	water_damage = 0.01,
+	fall_damage = true,
 	animation = {
 		speed_normal = 15,
 		speed_run = 15,
@@ -54,34 +49,10 @@ mobs:register_mob("golem:golem", {
 		punch_start = 55,
 		punch_end = 63,
 	},
-
-	on_spawn = function ()
-	minetest.chat_send_all ("Golem Summoned ...")
-	end,
-	
-	--- REFERENCIA DO MINECLONE2 BOSS :)
-	on_die = function(self, pos) -- POSIÇÃO
-	for _,players in pairs(minetest.get_objects_inside_radius(pos,55)) do -- CONSEGUIR RADIUS ( POSIÇÃO ,64 NODES?)
-			if players:is_player() then -- SE PLAYER
-				awards.unlock(players:get_player_name(), "boss_2") -- DESBLOQUEAR CONQUISTAS?
-			end
-		end
-	end
-
-
 })
 
+mobs:register_egg("forgotten_monsters:golem", forgotten_monsters.S("Golem"), "egggoelm.png", 1)
 
-mobs:spawn({
-	name = "golem:golem",
-	nodes = {"default:stone"},
-	max_light = 7,
-	interval = 60,
-  chance = 150000,
-	max_height = -700,
-	min_height = -900,
-})
-
-
-mobs:register_egg("golem:golem", "Golem", "egggoelm.png", 1)
---core.register_alias("golem:golem", "spawneggs:golem")
+if not forgotten_monsters.custom_spawn and forgotten_monsters.spawns.golem then
+	mobs:spawn(forgotten_monsters.spawns.golem)
+end

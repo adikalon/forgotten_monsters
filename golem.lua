@@ -8,7 +8,7 @@ mobs:register_mob("forgotten_monsters:golem", {
 	pathfinding = true,
 	reach = 6,
 	damage = 12,
-	hp_min = 3500,
+	hp_min = 3000,
 	hp_max = 4000,
 	armor = 80,
 	collisionbox = {-1.0, -2.0, -1.0, 1.0, 1.2, 1.0},

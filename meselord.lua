@@ -11,7 +11,7 @@ mobs:register_mob("forgotten_monsters:meselord", {
 	pathfinding = true,
 	reach = 4,
 	damage = 6,
-	hp_min = 2500,
+	hp_min = 2000,
 	hp_max = 3000,
 	armor = 80,
 	visual_size = {x = 3, y = 3},

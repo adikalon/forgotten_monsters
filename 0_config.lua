@@ -79,4 +79,15 @@ forgotten_monsters.spawns = {
 		min_height = forgotten_monsters.height.min,
 		max_height = -2000,
 	},
+	skullking = {
+		name = "forgotten_monsters:skullking",
+		nodes = {"group:cracky", "group:crumbly"},
+		neighbors = {"air"},
+		mix_light = 0,
+		interval = 30,
+		chance = 20000,
+		active_object_count = 1,
+		min_height = forgotten_monsters.height.min,
+		max_height = -4000,
+	},
 }

@@ -1,16 +1,15 @@
----- SKULL KING  ( BOSS FINAL ) ------------------------------------------------------------------------------------------------------
--- sound attack : https://freesound.org/people/TomRonaldmusic/sounds/607201/
-
-mobs:register_mob("skullking:sking", {
-	nametag = "Skull King Boss" ,
+local skullking = {
+	nametag = forgotten_monsters.S("Skull King"),
 	type = "monster",
+	attack_animals = true,
+	attack_npcs = true,
 	passive = false,
 	attack_type = "dogfight",
 	pathfinding = true,
 	reach = 8,
 	damage = 15,
-	hp_min = 700,
-	hp_max = 700,
+	hp_min = 4000,
+	hp_max = 5000,
 	armor = 80,
 	visual_size = {x = 1.3, y = 1.3},
 	collisionbox = {-0.5, -1.67, -0.4, 0.5, 2.3, 0.5},
@@ -20,28 +19,25 @@ mobs:register_mob("skullking:sking", {
 	textures = {
 		{"skull_king_deep.png"},
 	},
-	--glow = 4,
 	blood_texture = "bonex.png",
 	makes_footstep_sound = true,
 	sounds = {
 		attack = "skullking",
 		death = "falling_bones",
 	},
-	walk_velocity = 2, --2
-	run_velocity = 7,  --5
-	jump_height = 3,   -- 8
+	walk_velocity = 2,
+	run_velocity = 7,
+	jump_height = 3,
 	stepheight = 3,
 	floats = 0,
 	view_range = 35,
 	drops = {
-		{name = "skullkingsitems:helmet_skullking", chance = 1, min = 1, max = 1},
-		{name = "skullkingsitems:hammer", chance = 1, min = 1, max = 1},
-		--{name = "skullkingsitems:skullking_trophy", chance = 1, min = 1, max = 1},
-		--{name = "", chance = 3, min = 1, max = 1},
+		{name = "default:goldblock", chance = 1, min = 20, max = 40},
 	},
-	water_damage = 0,
-	lava_damage = 1,
+	lava_damage = 4,
 	light_damage = 0,
+	water_damage = 0.01,
+	fall_damage = true,
 	animation = {
 		speed_normal = 15,
 		speed_run = 15,
@@ -54,41 +50,16 @@ mobs:register_mob("skullking:sking", {
 		punch_start = 45,
 		punch_end =84,
 		punch_speed = 23,
-
-
 	},
+}
 
-	on_spawn = function ()
-	minetest.chat_send_all ("The Skull King is reborn...")
-	end,
-	
-	--- REFERENCIA DO MINECLONE2 BOSS :)
-	on_die = function(self, pos) -- POSIÇÃO
-	for _,players in pairs(minetest.get_objects_inside_radius(pos,55)) do -- CONSEGUIR RADIUS ( POSIÇÃO ,64 NODES?)
-			if players:is_player() then -- SE PLAYER
-				awards.unlock(players:get_player_name(), "boss_3") -- DESBLOQUEAR CONQUISTAS?
-			end
-		end
-	end
-
-
-})
-
-
-if not mobs.custom_spawn_monster then
-
-mobs:spawn({
-	name = "skullking:sking",
-	nodes = {"default:cobble","default:mossycobble", "default:chest"},
-	max_light = 7,
-	interval = 60,
-  chance = 150000,
-	max_height = -1100,
-
-})
+if minetest.registered_items["bonemeal:bone"] then
+	table.insert(skullking.drops, {name = "bonemeal:bone", chance = 1, min = 150, max = 300})
 end
 
+mobs:register_mob("forgotten_monsters:skullking", skullking)
+mobs:register_egg("forgotten_monsters:skullking", forgotten_monsters.S("Skull King"), "eggsking.png", 1)
 
-
-mobs:register_egg("skullking:sking", "Skull King", "eggsking.png", 1)
---core.register_alias("skullking:sking", "spawneggs:sking")
+if not forgotten_monsters.custom_spawn and forgotten_monsters.spawns.skullking then
+	mobs:spawn(forgotten_monsters.spawns.skullking)
+end

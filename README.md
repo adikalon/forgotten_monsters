@@ -1,47 +1,24 @@
-# Forgotten Monsters ( WIP )
+# Forgotten Monsters [`forgotten_monsters`]
 
-- BY : DUCKGO
-- CREDITS : TenPlus1
-- LICENSE : MIT
-- TEXTURE : CC-BY-4.0
-- VERSION : 0.023
+This is a fork of the unsupported [monsters mod](https://github.com/minetest-mods-camp/forgotten_monsters) for the minetest game
 
-- depends = default, mobs , 3d_armor
-- optional_depends = awards
+![Preview](./screenshot.png)
 
-video : https://youtu.be/g8s-dqV5W14
+## Changes
 
-Forgotten Monsters, is modpack inspired by a mod called "Forbidden Island", which adds skulls, spectruns,
-and bosses to your world..
-These mobs are based on "Mob Monsters" from "TenPlus1"!
+* All monsters are supplied with one mod
+* All skeletons removed (except the boss)
+* All tools and foods have been removed
+* Changed spawn settings
+* Stronger and more generous bosses
+* Other changes
 
-Monsters :
-- Skull Normal
-- Skull Archers
-- Skull Sword
-- Humgry
-- Spoky  ( removed )
-- Spectrum
-- Bug Stone
-- Growler
-- Mese Lord ( Boss )
-- Golem ( Boss )
-- Skull King ( Boss )
-
-" This Last Boss can only be found in dungeons from -1100 "
-
-Items:
-- Bones , " Compatible with the mod : Bonemeal  ( By : TenPlus1 )"
-- Spectrum Orb ,  " Compatible with the mod : Return Mirror ( By : Wuzzy )"
-- Spectrum chest ( removed , will be added to another project )
-- Hungry Sheet
-- Healing
-- Mese Lord trophy
-- Golem trophy
-- Skull King trophy
-- skull king crown
-- Skull King's Hammer
-
-Blocks :
-- Bone Block
-- Spectrum Orb Block
+## Monsters
+* Bug Stone
+* Golem (Boss)
+* Growler
+* Hungry
+* Mese Lord (Boss)
+* Skull King (Boss)
+* Spectrum
+* Spoky

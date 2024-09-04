@@ -44,7 +44,7 @@ forgotten_monsters.spawns = {
 		chance = 20000,
 		active_object_count = 1,
 		min_height = forgotten_monsters.height.min,
-		max_height = -2000,
+		max_height = -3000,
 	},
 	growler = {
 		name = "forgotten_monsters:growler",
@@ -67,5 +67,16 @@ forgotten_monsters.spawns = {
 		active_object_count = 1,
 		min_height = forgotten_monsters.height.min,
 		max_height = forgotten_monsters.height.max,
+	},
+	meselord = {
+		name = "forgotten_monsters:meselord",
+		nodes = {"air"},
+		neighbors = {"air"},
+		mix_light = 0,
+		interval = 30,
+		chance = 20000,
+		active_object_count = 1,
+		min_height = forgotten_monsters.height.min,
+		max_height = -2000,
 	},
 }

@@ -1,22 +1,18 @@
-
---- MESE LORD ( BOSS 1 ) ------------------------------------------
--- sound : https://freesound.org/people/BrainClaim/sounds/267638/
-
-
-mobs:register_mob("meselord:meselord", {
-	nametag = "Mese Lord Boss" ,
+mobs:register_mob("forgotten_monsters:meselord", {
+	nametag = forgotten_monsters.S("Mese Lord"),
 	type = "monster",
 	passive = false,
-	attack_npcs = false,
+	attack_animals = true,
+	attack_npcs = true,
 	attack_type = "shoot",
 	shoot_interval = 0.3,
 	shoot_offset = 1.5,
-	arrow = "meselord:meselord_arrow",
+	arrow = "forgotten_monsters:meselord_arrow",
 	pathfinding = true,
 	reach = 4,
-	damage = 4,
-	hp_min = 300,
-	hp_max = 300,
+	damage = 6,
+	hp_min = 2500,
+	hp_max = 3000,
 	armor = 80,
 	visual_size = {x = 3, y = 3},
 	collisionbox = {-1.0, -0.7, -1.0, 1.0, 1.0, 1.0},
@@ -31,7 +27,6 @@ mobs:register_mob("meselord:meselord", {
 	sounds = {
 		random = "mese_lord",
 	},
-
 	fly = true ,
 	fly_in = "air",
 	walk_velocity = 3,
@@ -41,16 +36,12 @@ mobs:register_mob("meselord:meselord", {
 	floats = 0,
 	view_range = 40,
 	drops = {
-		{name = "default:mese", chance = 2, min = 1, max = 2},
-		--{name = "skullkingsitems:meselord_trophy", chance = 1, min = 1, max = 1},
+		{name = "default:mese", chance = 1, min = 5, max = 10},
 	},
-	water_damage = 0,
-	lava_damage = 0,
+	lava_damage = 4,
 	light_damage = 0,
-
-
+	water_damage = 0.01,
 	animation = {
-
 		speed_run = 15,
 		stand_start = 0,
 		stand_end = 0,
@@ -61,40 +52,9 @@ mobs:register_mob("meselord:meselord", {
 		shoot_start = 55,
 		shoot_end = 84,
 	},
-
-	on_spawn = function ()
-	minetest.chat_send_all ("Mese Lord has been awakened..")
-	end,
-	
-	--- REFERENCIA DO MINECLONE2 BOSS :)
-	on_die = function(self, pos) -- POSIÇÃO
-	for _,players in pairs(minetest.get_objects_inside_radius(pos,55)) do -- CONSEGUIR RADIUS ( POSIÇÃO ,64 NODES?)
-			if players:is_player() then -- SE PLAYER
-				awards.unlock(players:get_player_name(), "boss_1") -- DESBLOQUEAR CONQUISTAS?
-			end
-		end
-	end
-
-
-
 })
 
-if not mobs.custom_spawn_monster then
-
-mobs:spawn({
-	name = "meselord:meselord",
-	nodes = {"air"},
-	max_light = 7,
-	interval = 60,
-  chance = 150000,
-	max_height = -400,
-	min_height = -600,
-})
-end
-
--- ARROW -----------------------------------------------------------
-
-mobs:register_arrow("meselord:meselord_arrow", {
+mobs:register_arrow("forgotten_monsters:meselord_arrow", {
 	visual = "sprite",
 	visual_size = {x = 0.5, y = 0.5},
 	textures = {"default_mese_crystal.png"},
@@ -111,16 +71,11 @@ mobs:register_arrow("meselord:meselord_arrow", {
 	end,
 
 	on_punch = function(self, hitter, tflp, tool_capabilities, dir)
-
 		if hitter and hitter:is_player() and tool_capabilities and dir then
-
-			local damage = tool_capabilities.damage_groups and
-				tool_capabilities.damage_groups.fleshy or 1
-
+			local damage = tool_capabilities.damage_groups and tool_capabilities.damage_groups.fleshy or 1
 			local tmp = tflp / (tool_capabilities.full_punch_interval or 1.4)
 
 			if damage > 6 and tmp < 4 then
-
 				self.object:set_velocity({
 					x = dir.x * self.velocity,
 					y = dir.y * self.velocity,
@@ -144,18 +99,12 @@ mobs:register_arrow("meselord:meselord_arrow", {
 		}, nil)
 	end,
 
-
-	on_spawn = function ()
-	minetest.chat_send_all ("Mese Lord has been awakened...")
-	end,
-
 	hit_node = function(self, pos, node)
 	end,
 })
 
+mobs:register_egg("forgotten_monsters:meselord", forgotten_monsters.S("Mese Lord"), "default_mese_block.png", 1)
 
-
-
-
-mobs:register_egg("meselord:meselord", "Mese Lord", "default_mese_block.png", 1)
---core.register_alias("meselord:meselord", "spawneggs:spectrum")
+if not forgotten_monsters.custom_spawn and forgotten_monsters.spawns.meselord then
+	mobs:spawn(forgotten_monsters.spawns.meselord)
+end

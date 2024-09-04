@@ -1,10 +1,8 @@
--- SOUND GROWLER : https://freesound.org/people/usamah/sounds/464993/
-
-mobs:register_mob("growler:growler", {
-	--nametag = "Growler" ,
+mobs:register_mob("forgotten_monsters:growler", {
 	type = "monster",
 	passive = false,
-	attack_npcs = false,
+	attack_animals = true,
+	attack_npcs = true,
 	attack_type = "dogfight",
 	pathfinding = true,
 	reach = 3,
@@ -18,11 +16,11 @@ mobs:register_mob("growler:growler", {
 	rotate = 180,
 	textures = {
 		{"growler.png"},
+		{"growler2.png"},
 	},
 	blood_texture = "growler_blood.png",
 	sounds = {
 		attack = "growl_growler",
-		--death = "",
 	},
 	fly = true ,
 	fly_in = "air",
@@ -33,13 +31,11 @@ mobs:register_mob("growler:growler", {
 	floats = 1,
 	view_range = 25,
 	drops = {
-		{name = "growler:growler_meat_raw", chance = 1, min = 1, max = 1},
-		{name = "mobs:leather", chance = 3, min = 1, max = 1},
-
+		{name = "mobs:leather", chance = 1, min = 1, max = 1},
 	},
-	water_damage = 0,
-	lava_damage = 1,
-	light_damage = 0,
+	lava_damage = 4,
+	light_damage = 2,
+	water_damage = 0.01,
 	animation = {
 		speed_normal = 40,
 		speed_run = 40,
@@ -53,6 +49,13 @@ mobs:register_mob("growler:growler", {
 		punch_end = 118,
 	},
 })
+
+mobs:register_egg("forgotten_monsters:growler", forgotten_monsters.S("Growler"), "egggrowler.png", 1)
+
+if not forgotten_monsters.custom_spawn and forgotten_monsters.spawns.growler then
+	mobs:spawn(forgotten_monsters.spawns.growler)
+end
+
 
 if not mobs.custom_spawn_monster then
 
@@ -117,5 +120,3 @@ hunger_ng.add_hunger_data('growler:growler_meat', {
 	})
 
 end
-
-

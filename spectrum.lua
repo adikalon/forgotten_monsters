@@ -36,7 +36,7 @@ mobs:register_mob("forgotten_monsters:spectrum", {
 	view_range = 25,
 	drops = {},
 	lava_damage = 4,
-	light_damage = 2,
+	light_damage = 4,
 	water_damage = 0.01,
 	animation = {
 		speed_run = 15,

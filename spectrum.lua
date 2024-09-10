@@ -2,7 +2,7 @@
 mobs:register_mob("forgotten_monsters:spectrum", {
 	type = "monster",
 	passive = false,
-	attack_animals = true,
+	attack_animals = false,
 	attack_npcs = true,
 	attack_type = "shoot",
 	shoot_interval = 2.0,

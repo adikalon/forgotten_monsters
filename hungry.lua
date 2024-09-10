@@ -2,7 +2,7 @@
 mobs:register_mob("forgotten_monsters:hungry", {
 	type = "monster",
 	passive = false,
-	attack_animals = true,
+	attack_animals = false,
 	attack_npcs = true,
 	attack_type = "dogfight",
 	pathfinding = true,

@@ -1,7 +1,7 @@
 local skullking = {
 	nametag = forgotten_monsters.S("Skull King"),
 	type = "monster",
-	attack_animals = true,
+	attack_animals = false,
 	attack_npcs = true,
 	passive = false,
 	attack_type = "dogfight",

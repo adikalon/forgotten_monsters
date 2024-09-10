@@ -2,7 +2,7 @@ mobs:register_mob("forgotten_monsters:meselord", {
 	nametag = forgotten_monsters.S("Mese Lord"),
 	type = "monster",
 	passive = false,
-	attack_animals = true,
+	attack_animals = false,
 	attack_npcs = true,
 	attack_type = "shoot",
 	shoot_interval = 0.3,

@@ -18,11 +18,7 @@ dofile(path .. "/0_config.lua")
 
 -- MONSTERS
 dofile(path .. "/bugstone.lua")
-dofile(path .. "/golem.lua")
 dofile(path .. "/growler.lua")
-dofile(path .. "/hungry.lua")
-dofile(path .. "/meselord.lua")
-dofile(path .. "/skullking.lua")
 dofile(path .. "/spectrum.lua")
 dofile(path .. "/spoky.lua")
 

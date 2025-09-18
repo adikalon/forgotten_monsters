@@ -7,18 +7,16 @@ This is a fork of the unsupported [monsters mod](https://github.com/minetest-mod
 ## Changes
 
 * All monsters are supplied with one mod
-* All skeletons removed (except the boss)
+* All skeletons removed
 * All tools and foods have been removed
+* All bosses removed
+* Hangry removed
 * Changed spawn settings
 * Stronger and more generous bosses
 * Other changes
 
 ## Monsters
 * Bug Stone
-* Golem (Boss)
 * Growler
-* Hungry
-* Mese Lord (Boss)
-* Skull King (Boss)
 * Spectrum
 * Spoky
